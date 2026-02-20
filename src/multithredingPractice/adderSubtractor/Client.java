@@ -1,6 +1,4 @@
-package multithredingPractice;
-
-import multithredingPractice.adderSubtractor.*;
+package multithredingPractice.adderSubtractor;
 
 public class Client {
     public static void main(String[] Args) throws InterruptedException {
