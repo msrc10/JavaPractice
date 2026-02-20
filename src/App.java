@@ -16,22 +16,36 @@ public class App {
         
         // System.out.println(a + " " + b + " " + s + " " + ch + " " + line );
         
-        ArrayList<Book>bookList = new ArrayList<Book>();
-        ArrayList<User>userList = new ArrayList<User>();
 
-        LibraryManagementSystem LMS = new LibraryManagementSystem(bookList,userList);
+        LibraryManagementSystem LMS = new LibraryManagementSystem();
         
-        TextBook txtbook = new TextBook("maths","isbn","title","author",2);
-        NovelBook nbook = new NovelBook("comedy","is","tit","auth");
+        TextBook txtbook = new TextBook("mathsforeveryone","ramu","SDE","maths",2);
+        NovelBook nbook = new NovelBook("Intelligent","Ram","normal","comedy");
         
         LMS.addBook(txtbook);
         LMS.addBook(nbook);
         
-        Member member = new Member(5);
-        Librarian librarian = new Librarian("1");
+        Member Gannu = new Member("ganesh","Hyd",2);
+        Member Ram = new Member("ramu","atp",5);
+        Librarian librarian = new Librarian("Mohan","Atp","1");
         
-        LMS.registerUser(member);
+        LMS.registerUser(Gannu);
+        LMS.registerUser(Ram);
         LMS.registerUser(librarian);
+
+        System.out.println(LibraryManagementSystem.bookInventry);
+        System.out.println(LibraryManagementSystem.registeredUsers);
+
+        boolean success = txtbook.lend(Gannu);
+        System.out.println(success);
+
+        boolean Suc = txtbook.lend(Ram);
+        System.out.println(Suc);
+
+        txtbook.returnBook(Gannu);
+
+        boolean Succ = txtbook.lend(Ram);
+        System.out.println(Succ);
         
     }
 }
